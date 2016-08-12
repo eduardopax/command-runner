@@ -1,0 +1,22 @@
+users:
+- username: admin
+  password: admin
+groups:
+- name: all
+  commandGroup:
+  - name: start application x
+    commands:
+    - name: 'On'
+      script: script1.sh
+      color: blue
+    - name: 'Off'
+      script: command2.sh
+      color: red
+  - name: application 2
+    commands:
+    - name: 'On'
+      script: command1.sh
+      color: bule
+    - name: 'Off'
+      script: command2.sh
+      color: red
