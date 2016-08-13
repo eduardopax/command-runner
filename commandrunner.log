@@ -1493,3 +1493,233 @@ Caused by: java.lang.NullPointerException: null
 13:30:20.990 [main] INFO  c.c.component.CommandRunner - returned... [Executed with success
 ]
 13:30:21.016 [Thread-1] INFO  o.s.w.c.s.GenericWebApplicationContext - Closing org.springframework.web.context.support.GenericWebApplicationContext@72f46e16: startup date [Sat Aug 13 13:30:14 BRT 2016]; root of context hierarchy
+13:39:34.074 [main] INFO  c.c.CommandRunnerApplication - Starting CommandRunnerApplication on debian-virtualbox with PID 20173 (/home/eduardo/Projects/Git/command-runner/target/classes started by eduardo in /home/eduardo/Projects/Git/command-runner)
+13:39:34.089 [main] INFO  c.c.CommandRunnerApplication - No active profile set, falling back to default profiles: default
+13:39:34.263 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:39:34 BRT 2016]; root of context hierarchy
+13:39:34.764 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+13:39:36.798 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f305896a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13:39:37.903 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+13:39:37.955 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+13:39:37.956 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.3
+13:39:38.715 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13:39:38.733 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:39:38.733 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4475 ms
+13:39:39.321 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+13:39:39.322 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+13:39:39.323 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+13:39:39.324 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+13:39:39.326 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+13:39:39.326 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+13:39:39.651 [main] INFO  c.c.service.ConfigurationService - Giving permission to execute files in : null
+13:39:39.652 [main] INFO  c.c.component.CommandRunner - Executing... [sudo chmod +x *.sh]
+13:39:39.692 [main] INFO  c.c.component.CommandRunner - returning... [chmod: cannot access ‘*.sh’: No such file or directory]
+13:39:39.695 [main] INFO  c.c.component.CommandRunner - returned... [chmod: cannot access ‘*.sh’: No such file or directory
+]
+13:39:39.696 [main] INFO  c.c.service.ConfigurationService - Permission has been given.
+13:39:40.622 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26f7cdf8, org.springframework.security.web.context.SecurityContextPersistenceFilter@3910fe11, org.springframework.security.web.header.HeaderWriterFilter@4eb30d44, org.springframework.security.web.csrf.CsrfFilter@4393593c, org.springframework.security.web.authentication.logout.LogoutFilter@2d000e80, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1d61c6dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@351e414e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78b41097, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@376e7531, org.springframework.security.web.session.SessionManagementFilter@6972c30a, org.springframework.security.web.access.ExceptionTranslationFilter@7ce7e83c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39e67516]
+13:39:40.784 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:39:34 BRT 2016]; root of context hierarchy
+13:39:40.884 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/command/{idCommand}],methods=[GET]}" onto public com.commandrunner.bean.Result com.commandrunner.controller.CommandController.run(java.lang.Long)
+13:39:40.888 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+13:39:40.889 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+13:39:40.915 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+13:39:40.916 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+13:39:40.932 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:39:40.932 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:39:41.001 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:39:41.544 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13:39:41.578 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+13:39:41.607 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8081]
+13:39:41.687 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+13:39:41.797 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8081 (http)
+13:39:41.815 [main] INFO  c.c.CommandRunnerApplication - Started CommandRunnerApplication in 9.42 seconds (JVM running for 11.606)
+13:44:18.225 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+13:44:18.226 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:39:34 BRT 2016]; root of context hierarchy
+13:44:18.233 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+13:44:21.409 [main] INFO  c.c.CommandRunnerApplication - Starting CommandRunnerApplication on debian-virtualbox with PID 20321 (/home/eduardo/Projects/Git/command-runner/target/classes started by eduardo in /home/eduardo/Projects/Git/command-runner)
+13:44:21.423 [main] INFO  c.c.CommandRunnerApplication - No active profile set, falling back to default profiles: default
+13:44:21.668 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:44:21 BRT 2016]; root of context hierarchy
+13:44:22.036 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+13:44:24.931 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f305896a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13:44:25.921 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+13:44:25.972 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+13:44:25.973 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.3
+13:44:26.725 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13:44:26.742 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:44:26.742 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5078 ms
+13:44:27.275 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+13:44:27.276 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+13:44:27.276 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+13:44:27.276 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+13:44:27.286 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+13:44:27.287 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+13:44:27.517 [main] INFO  c.c.service.ConfigurationService - Giving permission to execute files in : null
+13:44:27.518 [main] INFO  c.c.component.CommandRunner - Executing... [sudo chmod +x *.sh]
+13:44:27.618 [main] INFO  c.c.component.CommandRunner - returning... [chmod: cannot access ‘*.sh’: No such file or directory]
+13:44:27.619 [main] INFO  c.c.component.CommandRunner - returned... [chmod: cannot access ‘*.sh’: No such file or directory
+]
+13:44:27.621 [main] INFO  c.c.service.ConfigurationService - Permission has been given.
+13:44:29.132 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26f7cdf8, org.springframework.security.web.context.SecurityContextPersistenceFilter@3910fe11, org.springframework.security.web.header.HeaderWriterFilter@4eb30d44, org.springframework.security.web.csrf.CsrfFilter@4393593c, org.springframework.security.web.authentication.logout.LogoutFilter@2d000e80, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1d61c6dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@351e414e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78b41097, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@376e7531, org.springframework.security.web.session.SessionManagementFilter@6972c30a, org.springframework.security.web.access.ExceptionTranslationFilter@7ce7e83c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@39e67516]
+13:44:29.300 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:44:21 BRT 2016]; root of context hierarchy
+13:44:29.424 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/command/{idCommand}],methods=[GET]}" onto public com.commandrunner.bean.Result com.commandrunner.controller.CommandController.run(java.lang.Long)
+13:44:29.440 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+13:44:29.440 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+13:44:29.493 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+13:44:29.494 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+13:44:29.528 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:44:29.535 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:44:29.666 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:44:30.110 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13:44:30.175 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+13:44:30.206 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8081]
+13:44:30.221 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+13:44:30.337 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8081 (http)
+13:44:30.355 [main] INFO  c.c.CommandRunnerApplication - Started CommandRunnerApplication in 10.156 seconds (JVM running for 11.423)
+13:46:31.056 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+13:46:31.057 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:44:21 BRT 2016]; root of context hierarchy
+13:46:31.064 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+13:46:34.796 [main] INFO  c.c.CommandRunnerApplication - Starting CommandRunnerApplication on debian-virtualbox with PID 20448 (/home/eduardo/Projects/Git/command-runner/target/classes started by eduardo in /home/eduardo/Projects/Git/command-runner)
+13:46:34.810 [main] INFO  c.c.CommandRunnerApplication - No active profile set, falling back to default profiles: default
+13:46:35.024 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:46:35 BRT 2016]; root of context hierarchy
+13:46:35.529 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+13:46:37.903 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f305896a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13:46:39.013 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+13:46:39.046 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+13:46:39.047 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.3
+13:46:39.861 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13:46:39.867 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:46:39.867 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4853 ms
+13:46:40.389 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+13:46:40.390 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+13:46:40.391 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+13:46:40.391 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+13:46:40.393 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+13:46:40.393 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+13:46:40.602 [main] ERROR c.c.service.ConfigurationService - Directory '/scripts' does not exist.
+13:46:40.604 [main] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commandController': Unsatisfied dependency expressed through field 'configurationService': Error creating bean with name 'configurationService' defined in file [/home/eduardo/Projects/Git/command-runner/target/classes/com/commandrunner/service/ConfigurationService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.commandrunner.service.ConfigurationService]: Constructor threw exception; nested exception is java.lang.NullPointerException; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'configurationService' defined in file [/home/eduardo/Projects/Git/command-runner/target/classes/com/commandrunner/service/ConfigurationService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.commandrunner.service.ConfigurationService]: Constructor threw exception; nested exception is java.lang.NullPointerException
+13:46:40.609 [main] INFO  o.a.catalina.core.StandardService - Stopping service Tomcat
+13:46:40.641 [main] WARN  o.s.boot.SpringApplication - Error handling failed (Error creating bean with name 'delegatingApplicationListener' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' is defined)
+13:46:40.683 [main] ERROR o.s.boot.SpringApplication - Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'commandController': Unsatisfied dependency expressed through field 'configurationService': Error creating bean with name 'configurationService' defined in file [/home/eduardo/Projects/Git/command-runner/target/classes/com/commandrunner/service/ConfigurationService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.commandrunner.service.ConfigurationService]: Constructor threw exception; nested exception is java.lang.NullPointerException; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'configurationService' defined in file [/home/eduardo/Projects/Git/command-runner/target/classes/com/commandrunner/service/ConfigurationService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.commandrunner.service.ConfigurationService]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:569)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:349)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1214)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:543)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:775)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:861)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1185)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1174)
+	at com.commandrunner.CommandRunnerApplication.main(CommandRunnerApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'configurationService' defined in file [/home/eduardo/Projects/Git/command-runner/target/classes/com/commandrunner/service/ConfigurationService.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.commandrunner.service.ConfigurationService]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:279)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1143)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1046)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:187)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1213)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1053)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1018)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:566)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.commandrunner.service.ConfigurationService]: Constructor threw exception; nested exception is java.lang.NullPointerException
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:159)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:122)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:271)
+	... 32 common frames omitted
+Caused by: java.lang.NullPointerException: null
+	at com.commandrunner.service.ConfigurationService.loadDirectory(ConfigurationService.java:74)
+	at com.commandrunner.service.ConfigurationService.<init>(ConfigurationService.java:51)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:147)
+	... 34 common frames omitted
+13:47:49.852 [main] INFO  c.c.CommandRunnerApplication - Starting CommandRunnerApplication on debian-virtualbox with PID 20488 (/home/eduardo/Projects/Git/command-runner/target/classes started by eduardo in /home/eduardo/Projects/Git/command-runner)
+13:47:49.866 [main] INFO  c.c.CommandRunnerApplication - No active profile set, falling back to default profiles: default
+13:47:50.010 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:47:50 BRT 2016]; root of context hierarchy
+13:47:50.485 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+13:47:53.969 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f305896a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+13:47:55.477 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8081 (http)
+13:47:55.561 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+13:47:55.564 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.3
+13:47:56.450 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13:47:56.469 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:47:56.470 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6467 ms
+13:47:57.069 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+13:47:57.070 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+13:47:57.071 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+13:47:57.071 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+13:47:57.073 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+13:47:57.073 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+13:47:57.198 [main] INFO  c.c.service.ConfigurationService - Giving permission to execute files in : /home/eduardo/Projects/Git/command-runner/target/classes/scripts
+13:47:57.199 [main] INFO  c.c.component.CommandRunner - Executing... [sudo chmod +x *.sh]
+13:47:57.220 [main] INFO  c.c.component.CommandRunner - returned... []
+13:47:57.221 [main] INFO  c.c.service.ConfigurationService - Permission has been given.
+13:47:58.197 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75e710b, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ab6718, org.springframework.security.web.header.HeaderWriterFilter@3c904f1e, org.springframework.security.web.csrf.CsrfFilter@1f6d27cc, org.springframework.security.web.authentication.logout.LogoutFilter@6c65860d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6e495b48, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@460510aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f672204, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26f7cdf8, org.springframework.security.web.session.SessionManagementFilter@d56aaa6, org.springframework.security.web.access.ExceptionTranslationFilter@6df3e44c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43034809]
+13:47:58.364 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:47:50 BRT 2016]; root of context hierarchy
+13:47:58.449 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/command/{idCommand}],methods=[GET]}" onto public com.commandrunner.bean.Result com.commandrunner.controller.CommandController.run(java.lang.Long)
+13:47:58.478 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+13:47:58.479 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+13:47:58.543 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/login] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+13:47:58.544 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+13:47:58.568 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:47:58.569 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:47:58.636 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+13:47:58.962 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13:47:59.004 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+13:47:59.021 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8081]
+13:47:59.028 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+13:47:59.122 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8081 (http)
+13:47:59.130 [main] INFO  c.c.CommandRunnerApplication - Started CommandRunnerApplication in 10.778 seconds (JVM running for 12.132)
+13:48:43.920 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+13:48:43.920 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+13:48:43.943 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+13:49:40.018 [http-nio-8081-exec-1] INFO  c.c.controller.CommandController - idCommand received [ 1]
+13:49:40.020 [http-nio-8081-exec-1] INFO  c.c.component.CommandRunner - Executing... [./script1.sh]
+13:49:40.068 [http-nio-8081-exec-1] INFO  c.c.component.CommandRunner - returning... [Executed with success]
+13:49:40.068 [http-nio-8081-exec-1] INFO  c.c.component.CommandRunner - returned... [Executed with success
+]
+13:49:49.564 [http-nio-8081-exec-5] INFO  c.c.controller.CommandController - idCommand received [ 1]
+13:49:49.565 [http-nio-8081-exec-5] INFO  c.c.component.CommandRunner - Executing... [./script1.sh]
+13:49:49.603 [http-nio-8081-exec-5] INFO  c.c.component.CommandRunner - returning... [Executed with success]
+13:49:49.604 [http-nio-8081-exec-5] INFO  c.c.component.CommandRunner - returned... [Executed with success
+]
+13:50:18.940 [http-nio-8081-exec-3] INFO  c.c.controller.CommandController - idCommand received [ 1]
+13:50:18.941 [http-nio-8081-exec-3] INFO  c.c.component.CommandRunner - Executing... [./script1.sh]
+13:50:18.952 [http-nio-8081-exec-3] INFO  c.c.component.CommandRunner - returning... [Executed with success]
+13:50:18.953 [http-nio-8081-exec-3] INFO  c.c.component.CommandRunner - returned... [Executed with success
+]
+13:50:20.779 [http-nio-8081-exec-7] INFO  c.c.controller.CommandController - idCommand received [ 1]
+13:50:20.780 [http-nio-8081-exec-7] INFO  c.c.component.CommandRunner - Executing... [./script1.sh]
+13:50:20.822 [http-nio-8081-exec-7] INFO  c.c.component.CommandRunner - returning... [Executed with success]
+13:50:20.822 [http-nio-8081-exec-7] INFO  c.c.component.CommandRunner - returned... [Executed with success
+]
+13:50:47.786 [http-nio-8081-exec-10] INFO  c.c.controller.CommandController - idCommand received [ 1]
+13:50:47.799 [http-nio-8081-exec-10] INFO  c.c.component.CommandRunner - Executing... [./script1.sh]
+13:50:47.835 [http-nio-8081-exec-10] INFO  c.c.component.CommandRunner - returning... [Executed with success]
+13:50:47.836 [http-nio-8081-exec-10] INFO  c.c.component.CommandRunner - returned... [Executed with success
+]
+13:50:55.412 [http-nio-8081-exec-9] INFO  c.c.controller.CommandController - idCommand received [ 1]
+13:50:55.412 [http-nio-8081-exec-9] INFO  c.c.component.CommandRunner - Executing... [./script1.sh]
+13:50:55.447 [http-nio-8081-exec-9] INFO  c.c.component.CommandRunner - returning... [Executed with success]
+13:50:55.457 [http-nio-8081-exec-9] INFO  c.c.component.CommandRunner - returned... [Executed with success
+]
+13:51:27.994 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+13:51:27.995 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ace1ed4: startup date [Sat Aug 13 13:47:50 BRT 2016]; root of context hierarchy
+13:51:28.006 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown

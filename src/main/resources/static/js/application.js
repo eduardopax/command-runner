@@ -4,6 +4,5 @@
 var path = window.location.protocol + '//' + window.location.hostname + ':'
 		+ window.location.port;
 
-//var scApp = angular.module('scApp', ['ngRoute']);
-var scApp = angular.module('scApp',[]);
+var commandRunnerApp = angular.module('commandRunnerApp',[]);
 

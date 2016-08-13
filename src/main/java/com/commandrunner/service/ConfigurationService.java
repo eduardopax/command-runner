@@ -70,7 +70,8 @@ public class ConfigurationService {
 			Resource resource = resourceLoader.getResource("classpath:/scripts/");
 			this.directoryCommand = resource.getFile().getAbsolutePath();
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("Directory '/scripts' does not exist.");
+			shutdownApplication.shutdown();
 		}
 	}
 

@@ -24,7 +24,7 @@
 
 </head>
 
-<body ng-app="scApp" class="ng-cloak">
+<body ng-app="commandRunnerApp" class="ng-cloak">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -62,20 +62,20 @@
 		<div class="row">
 			<div class="col-xs-12 text-center">Transmission Torrent</div>
 			<div class="row">
-				<div class="col-xs-4 text-right">
+				<div class="col-xs-3 text-right">
 					<button type="button" class="btn btn-primary btn-sm "
-						ng-click="ctrl.on(2)">On</button>
+						ng-click="ctrl.execute(1)">On</button>
 				</div>
-				<div class="col-xs-2 text-center">
+				<div class="col-xs-3 text-center">
 					<button type="button" class="btn btn-danger btn-sm"
 						ng-click="ctrl.off(2)">Off</button>
 				</div>
-				<div class="col-xs-2 text-center"">
+				<div class="col-xs-3 text-center"">
 					<button type="button" class="btn btn-success btn-sm"
 						ng-click="ctrl.status(2)">Status</button>
 				</div>
-				<div class="col-xs-4 text-center">
-					<div id="status2">status</div>
+				<div class="col-xs-3 text-center">
+					<div id="status1">status</div>
 				</div>
 			</div>
 		</div>
