@@ -9,16 +9,17 @@ import org.springframework.stereotype.Controller;
 
 import com.commandrunner.bean.User;
 import com.commandrunner.bean.UserDetailsImpl;
+import com.commandrunner.service.ConfigurationService;
 
 @Controller
 public class UserController {
 
 	@Autowired
-	private ConfigController configController;
+	private ConfigurationService configurationService;
 
 	public List<UserDetails> getUserDetails() {
 		List<UserDetails> users = new ArrayList<>();
-		for (User user : this.configController.getConfig().getUsers()) {
+		for (User user : this.configurationService.getConfiguration().getUsers()) {
 			UserDetailsImpl userDetails = new UserDetailsImpl(user);
 			users.add(userDetails);
 		}

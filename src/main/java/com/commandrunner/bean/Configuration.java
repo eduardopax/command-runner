@@ -2,7 +2,7 @@ package com.commandrunner.bean;
 
 import java.util.List;
 
-public class Config {
+public class Configuration {
 
 	private List<User> users;
 

@@ -8,18 +8,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.commandrunner.CommandRunnerApplication;
-import com.commandrunner.controller.ConfigController;
+import com.commandrunner.service.ConfigurationService;
 
 @SpringBootTest(classes = CommandRunnerApplication.class)
 @RunWith(SpringRunner.class)
 public class ConfigControllerTest {
 
 	@Autowired
-	private ConfigController configController;
+	private ConfigurationService configurationService;
 
 	@Test
 	public void loadConfig() {
-		Assert.assertNotNull(this.configController.getConfig());
+		Assert.assertNotNull(this.configurationService.getConfiguration());
 	}
 
 }

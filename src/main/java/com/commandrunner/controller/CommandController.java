@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commandrunner.bean.Command;
-import com.commandrunner.rest.bean.Result;
-import com.commandrunner.runner.CommandRunner;
+import com.commandrunner.bean.Result;
+import com.commandrunner.component.CommandRunner;
+import com.commandrunner.service.ConfigurationService;
 
 @RestController
 @RequestMapping("/command")
@@ -22,13 +23,17 @@ public class CommandController {
 	private CommandRunner commandRunner;
 
 	@Autowired
-	private ConfigController configController;
+	private ConfigurationService configurationService;
 
 	@RequestMapping(value = "/{idCommand}", method = RequestMethod.GET)
 	public Result run(@PathVariable("idCommand") Long idCommand) {
 		logger.info("idCommand received [ " + idCommand + "]");
-		Command command = this.configController.getConfig(idCommand);
-		return this.commandRunner.run(command.getScript());
+		Command command = this.configurationService.getConfiguration(idCommand);
+		return this.commandRunner.run(this.getCommandFormated(command), configurationService.getDirectoryCommand());
+	}
+
+	private String getCommandFormated(Command command) {
+		return "./" + command.getScript();
 	}
 
 }

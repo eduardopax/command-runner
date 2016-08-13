@@ -16,7 +16,7 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.error.YAMLException;
 
 import com.commandrunner.CommandRunnerApplication;
-import com.commandrunner.bean.Config;
+import com.commandrunner.bean.Configuration;
 
 @SpringBootTest(classes = CommandRunnerApplication.class)
 @RunWith(SpringRunner.class)
@@ -29,9 +29,9 @@ public class ConfigTest {
 	public void getConfigOK() {
 		Resource resource = resourceLoader.getResource("classpath:/config/command-runner.yml");
 		Yaml yaml = new Yaml();
-		Config config = null;
+		Configuration config = null;
 		try {
-			config = yaml.loadAs(new FileInputStream(resource.getFile()), Config.class);
+			config = yaml.loadAs(new FileInputStream(resource.getFile()), Configuration.class);
 		} catch (IOException e) {
 			Assert.fail();
 		}
@@ -44,7 +44,7 @@ public class ConfigTest {
 		Resource resource = resourceLoader.getResource("classpath:/config/command-runner-error.yml");
 		Yaml yaml = new Yaml();
 		try {
-			Config config = yaml.loadAs(new FileInputStream(resource.getFile()), Config.class);
+			Configuration config = yaml.loadAs(new FileInputStream(resource.getFile()), Configuration.class);
 			Assert.fail("It can not load");
 		} catch (FileNotFoundException e) {
 			Assert.fail("It can not load");
@@ -57,7 +57,7 @@ public class ConfigTest {
 
 	@Test
 	public void getCommands() {
-		Config config = loadFile();
+		Configuration config = loadFile();
 		Assert.assertNotNull(config);
 		Assert.assertEquals("script1.sh",
 				config.getGroups().get(0).getCommandGroup().get(0).getCommands().get(0).getScript());
@@ -66,17 +66,17 @@ public class ConfigTest {
 
 	@Test
 	public void getApplicarion2() {
-		Config config = loadFile();
+		Configuration config = loadFile();
 		Assert.assertNotNull(config);
 		Assert.assertEquals("application 2", config.getGroups().get(0).getCommandGroup().get(1).getName());
 	}
 
-	private Config loadFile() {
+	private Configuration loadFile() {
 		Resource resource = resourceLoader.getResource("classpath:/config/command-runner.yml");
 		Yaml yaml = new Yaml();
-		Config config = null;
+		Configuration config = null;
 		try {
-			config = yaml.loadAs(new FileInputStream(resource.getFile()), Config.class);
+			config = yaml.loadAs(new FileInputStream(resource.getFile()), Configuration.class);
 		} catch (FileNotFoundException e) {
 			Assert.fail("It can not load");
 		} catch (IOException e) {

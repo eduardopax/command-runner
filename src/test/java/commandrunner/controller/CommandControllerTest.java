@@ -10,11 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.commandrunner.CommandRunnerApplication;
-import com.commandrunner.bean.Config;
+import com.commandrunner.bean.Configuration;
+import com.commandrunner.bean.Result;
+import com.commandrunner.bean.ResultEnum;
 import com.commandrunner.controller.CommandController;
-import com.commandrunner.controller.ConfigController;
-import com.commandrunner.rest.bean.Result;
-import com.commandrunner.rest.bean.ResultEnum;
+import com.commandrunner.service.ConfigurationService;
 
 @SpringBootTest(classes = CommandRunnerApplication.class)
 @RunWith(SpringRunner.class)
@@ -24,7 +24,7 @@ public class CommandControllerTest {
 	private CommandController commandController;
 
 	@Autowired
-	private ConfigController configController;
+	private ConfigurationService configurationService;
 
 	@Before
 	public void before() throws Exception {
@@ -34,7 +34,7 @@ public class CommandControllerTest {
 
 	@Test
 	public void testCommand1() {
-		Config config = this.configController.getConfig();
+		Configuration config = this.configurationService.getConfiguration();
 		String script = config.getGroups().get(0).getCommandGroup().get(0).getCommands().get(0).getScript();
 		Assert.assertEquals("script1.sh", script);
 		Long idCommand = config.getGroups().get(0).getCommandGroup().get(0).getCommands().get(0).getId();

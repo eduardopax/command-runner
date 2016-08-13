@@ -1,1 +1,1 @@
-pwd
+echo 'Executed with success'

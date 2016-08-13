@@ -1,4 +1,4 @@
-package com.commandrunner.runner;
+package com.commandrunner.component;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,21 +10,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.commandrunner.rest.bean.Result;
-import com.commandrunner.rest.bean.ResultEnum;
+import com.commandrunner.bean.Result;
+import com.commandrunner.bean.ResultEnum;
 
 /**
- * http://stackoverflow.com/questions/1410741/want-to-invoke-a-linux-shell-
- * command-from-java
+ * http://stackoverflow.com/questions/1410741/want-to-invoke-a-linux-shell- command-from-java
  */
 @Component
 public class CommandRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(CommandRunner.class);
-
-	public Result run(String command) {
-		return this.run(command, "/scrips/");
-	}
 
 	/**
 	 * Roda um comando no shell
