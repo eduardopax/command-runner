@@ -2,21 +2,24 @@ users:
 - username: admin
   password: admin
 groups:
-- name: all
+- name: All
   commandGroup:
-  - name: start application x
+  - name: Start application x
     commands:
     - name: 'On'
       script: script1.sh
-      color: blue
+      color: btn-primary
     - name: 'Off'
-      script: command2.sh
-      color: red
-  - name: application 2
+      script: script2.sh
+      color: btn-danger
+    - name: 'Verify'
+      script: script3.sh
+      color: btn-success
+  - name: Application 2
     commands:
     - name: 'On'
-      script: command1.sh
-      color: bule
+      script: script4.sh
+      color: btn-primary
     - name: 'Off'
-      script: command2.sh
-      color: red
+      script: script5.sh
+      color: btn-danger

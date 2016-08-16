@@ -68,7 +68,7 @@ public class ConfigTest {
 	public void getApplicarion2() {
 		Configuration config = loadFile();
 		Assert.assertNotNull(config);
-		Assert.assertEquals("application 2", config.getGroups().get(0).getCommandGroup().get(1).getName());
+		Assert.assertEquals("Application 2", config.getGroups().get(0).getCommandGroup().get(1).getName());
 	}
 
 	private Configuration loadFile() {

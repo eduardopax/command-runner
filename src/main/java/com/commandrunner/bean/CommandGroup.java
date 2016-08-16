@@ -4,9 +4,15 @@ import java.util.List;
 
 public class CommandGroup {
 
+	private Long id;
+
 	private String name;
 
 	private List<Command> commands;
+
+	public CommandGroup() {
+		this.id = CommandGroupIdGenerator1.nextId();
+	}
 
 	public String getName() {
 		return name;
@@ -24,4 +30,7 @@ public class CommandGroup {
 		this.commands = commands;
 	}
 
+	public Long getId() {
+		return id;
+	}
 }

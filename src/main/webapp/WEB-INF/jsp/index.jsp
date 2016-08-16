@@ -20,7 +20,6 @@
 <link href="/css/index.css" rel="stylesheet">
 
 <script src="<core:url value='/js/lib/angular.min.js' />"></script>
-<script src="<core:url value='/js/lib/angular-route.min.js' />"></script>
 
 </head>
 
@@ -58,107 +57,39 @@
 				<tags:message code="index_commands" />
 			</div>
 		</div>
-		<br />
-		<div class="row">
-			<div class="col-xs-12 text-center">Transmission Torrent</div>
-			<div class="row">
-				<div class="col-xs-3 text-right">
-					<button type="button" class="btn btn-primary btn-sm "
-						ng-click="ctrl.execute(1)">On</button>
-				</div>
-				<div class="col-xs-3 text-center">
-					<button type="button" class="btn btn-danger btn-sm"
-						ng-click="ctrl.off(2)">Off</button>
-				</div>
-				<div class="col-xs-3 text-center"">
-					<button type="button" class="btn btn-success btn-sm"
-						ng-click="ctrl.status(2)">Status</button>
-				</div>
-				<div class="col-xs-3 text-center">
-					<div id="status1">status</div>
+		<div class="container-fluid" ng-repeat="group in ctrl.groups">
+			<div class="row bg-primary">
+				<div class="col-xs-12 text-center">
+					<span ng-bind="group.name">
 				</div>
 			</div>
-		</div>
-		<br />
-		<div class="row">
-			<div class="col-xs-12 text-center">Jenkins</div>
-			<div class="row">
-				<div class="col-xs-4 text-right">
-					<button type="button" class="btn btn-primary btn-sm "
-						ng-click="ctrl.on(5)">On</button>
+			<div class="row" ng-repeat="commandGroup in group.commandGroup">
+				<div class="col-xs-12 text-center">
+					<span ng-bind="commandGroup.name">
 				</div>
-				<div class="col-xs-2 text-center">
-					<button type="button" class="btn btn-danger btn-sm"
-						ng-click="ctrl.off(5)">Off</button>
+				<div class="row">
+					<div
+						class="col-xs-{{12 / (commandGroup.commands.length + 1)}} text-center"
+						ng-repeat="command in commandGroup.commands">
+						<button type="button" class="btn {{command.color}} btn-sm "
+							ng-click="ctrl.execute(commandGroup.id, command.id)">
+							<span ng-bind="command.name">
+						</button>
+					</div>
+					<div
+						class="col-xs-{{12 / (commandGroup.commands.length + 1)}} text-center">
+						<div id="status{{commandGroup.id}}">status</div>
+					</div>
 				</div>
-				<div class="col-xs-2 text-center"">
-					<button type="button" class="btn btn-success btn-sm"
-						ng-click="ctrl.status(5)">Status</button>
-				</div>
-				<div class="col-xs-4 text-center">
-					<div id="status5">status</div>
-				</div>
-			</div>
-		</div>
-		<br />
-		<div class="row">
-			<div class="col-xs-12 text-center">Desligar BBB</div>
-			<div class="row">
-				<div class="col-xs-6 text-right">
-					<button type="button" class="btn btn-primary btn-sm "
-						ng-click="ctrl.execute(1)">Execute</button>
-				</div>
-				<div class="col-xs-2 text-center"">
-					<button type="button" class="btn btn-success btn-sm"
-						ng-click="ctrl.status(1)">Status</button>
-				</div>
-				<div class="col-xs-4 text-center">
-					<div id="status1">status</div>
-				</div>
-			</div>
-		</div>
-		<br />
-		<div class="row">
-			<div class="col-xs-12 text-center">Reiniciar BBB</div>
-			<div class="row">
-				<div class="col-xs-6 text-right">
-					<button type="button" class="btn btn-primary btn-sm "
-						ng-click="ctrl.execute(3)">Execute</button>
-				</div>
-				<div class="col-xs-2 text-center"">
-					<button type="button" class="btn btn-success btn-sm"
-						ng-click="ctrl.status(3)">Status</button>
-				</div>
-				<div class="col-xs-4 text-center">
-					<div id="status3">status</div>
-				</div>
-			</div>
-		</div>
-		<br />
-		<div class="row">
-			<div class="col-xs-12 text-center">Desligar Aplicação</div>
-			<div class="row">
-				<div class="col-xs-6 text-right">
-					<button type="button" class="btn btn-primary btn-sm "
-						ng-click="ctrl.execute(4)">Execute</button>
-				</div>
-				<div class="col-xs-2 text-center"">
-					<button type="button" class="btn btn-success btn-sm"
-						ng-click="ctrl.status(4)">Status</button>
-				</div>
-				<div class="col-xs-4 text-center">
-					<div id="status4">status</div>
-				</div>
+				<br />
 			</div>
 		</div>
 	</div>
-
 
 	<script src="<core:url value='/js/application.js' />"></script>
 	<script src="<core:url value='/js/services.js' />"></script>
 	<script src="<core:url value='/js/controllers.js' />"></script>
 
-	<%-- <script src="<core:url value='js/route.js' />"></script> --%>
 	<script src="<core:url value='/js/lib/jquery.min.js' />"></script>
 	<script src="<core:url value='/js/lib/bootstrap.min.js' />"></script>
 
