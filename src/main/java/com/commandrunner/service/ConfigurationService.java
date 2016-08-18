@@ -1,6 +1,5 @@
 package com.commandrunner.service;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,6 +20,7 @@ import com.commandrunner.bean.Group;
 import com.commandrunner.bean.Result;
 import com.commandrunner.bean.ResultEnum;
 import com.commandrunner.component.CommandRunner;
+import com.commandrunner.component.ScriptsDirectory;
 import com.commandrunner.component.ShutdownApplication;
 
 @Service
@@ -37,25 +37,26 @@ public class ConfigurationService {
 
 	private Configuration configuration;
 
-	private String directoryCommand;
+	private ScriptsDirectory scriptsDirectory;
 
 	/**
 	 * Verify files and set permission to execute
 	 */
-	public ConfigurationService(ResourceLoader resourceLoader, CommandRunner commandRunner) {
+	public ConfigurationService(ResourceLoader resourceLoader, CommandRunner commandRunner,
+			ScriptsDirectory scriptsDirectory) {
 		this.commandRunner = commandRunner;
+		this.scriptsDirectory = scriptsDirectory;
+
 		this.loadConfiguration(resourceLoader);
 
 		this.populateCommandHash();
-
-		this.loadDirectory(resourceLoader);
 
 		this.setPermissionToFiles();
 	}
 
 	private void setPermissionToFiles() {
-		logger.info("Giving permission to execute files in : " + this.directoryCommand);
-		Result result = this.commandRunner.run("sudo chmod +x *.sh", this.directoryCommand);
+		logger.info("Giving permission to execute files in : " + this.scriptsDirectory.getDirectory());
+		Result result = this.commandRunner.run("sudo chmod +x *.sh", this.scriptsDirectory.getDirectory());
 		if (result.getResultEnum().equals(ResultEnum.OK)) {
 			logger.info("Permission has been given.");
 		} else {
@@ -65,22 +66,12 @@ public class ConfigurationService {
 
 	}
 
-	private void loadDirectory(ResourceLoader resourceLoader) {
-		try {
-			Resource resource = resourceLoader.getResource("classpath:/scripts/");
-			this.directoryCommand = resource.getFile().getAbsolutePath();
-		} catch (IOException e) {
-			logger.error("Directory '/scripts' does not exist.");
-			shutdownApplication.shutdown();
-		}
-	}
-
 	private void loadConfiguration(ResourceLoader resourceLoader) {
 		// Load Configuration
 		Resource resource = resourceLoader.getResource("classpath:/config/command-runner.yml");
 		Yaml yaml = new Yaml();
 		try {
-			this.configuration = yaml.loadAs(new FileInputStream(resource.getFile()), Configuration.class);
+			this.configuration = yaml.loadAs(resource.getInputStream(), Configuration.class);
 		} catch (FileNotFoundException e) {
 			logger.error("File not found in [classpath:/config/command-runner.yml]");
 			shutdownApplication.shutdown();
@@ -110,10 +101,6 @@ public class ConfigurationService {
 
 	public Command getConfiguration(Long idCommand) {
 		return this.commandHash.get(idCommand);
-	}
-
-	public String getDirectoryCommand() {
-		return this.directoryCommand;
 	}
 
 }

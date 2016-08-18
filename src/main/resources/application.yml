@@ -16,6 +16,6 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
 logging:
-  file: commandrunner.log
+  file: command-runner
 server:
   port: 8081

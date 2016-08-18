@@ -9,9 +9,32 @@
 	</appender>
 
 	<!-- Ned appender to write to file -->
-	<appender name="FILE"
+	<appender name="FILE-FULL"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_FILE}</file>
+		<file>${LOG_FILE}-FULL.log</file>
+		<append>false</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_FILE}-FULL.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>1</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>10MB</maxFileSize>
+
+		</triggeringPolicy>
+
+	</appender>
+
+	<appender name="FILE-SIMPLE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILE}.log</file>
 		<append>false</append>
 		<encoder>
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
@@ -27,14 +50,18 @@
 		<triggeringPolicy
 			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
 			<maxFileSize>5MB</maxFileSize>
-			
+
 		</triggeringPolicy>
-		
+
 	</appender>
+
+	<logger name="com.commandrunner" level="info" additivity="false">
+		<appender-ref ref="FILE-SIMPLE" />
+	</logger>
 
 	<!-- Setting the root level of logging to INFO -->
 	<root level="info">
-		<appender-ref ref="FILE" />
+		<appender-ref ref="FILE-FULL" />
 		<appender-ref ref="CONSOLE" />
 	</root>
 </configuration>

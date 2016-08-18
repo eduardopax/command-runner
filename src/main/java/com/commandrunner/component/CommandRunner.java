@@ -65,7 +65,7 @@ public class CommandRunner {
 			result.setMessage(out.toString());
 		} catch (Exception e) {
 			logger.error("error executing [" + command + "]");
-			logger.error(e.getMessage());
+			e.printStackTrace();
 			result.setResultEnum(ResultEnum.ERROR);
 			result.setMessage(e.getMessage());
 		}
