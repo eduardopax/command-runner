@@ -1,5 +1,8 @@
 package com.commandrunner.component;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,26 +13,30 @@ import org.springframework.stereotype.Component;
 
 @Profile({ "development", "test" })
 @Component
-public class ScriptsDirectoryDevTstImpl implements ScriptsDirectory {
+public class ProjectDirectoryDevTstImpl implements ProjectDirectory {
 
-	private static final Logger logger = LoggerFactory.getLogger(ScriptsDirectoryDevTstImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(ProjectDirectoryDevTstImpl.class);
 
 	@Autowired
 	private ShutdownApplication shutdownApplication;
 
 	private String directory;
 
-	public ScriptsDirectoryDevTstImpl(ResourceLoader resourceLoader) {
-		this.loadScriptsDirectory(resourceLoader);
+	private ResourceLoader resourceLoader;
+
+	public ProjectDirectoryDevTstImpl(ResourceLoader resourceLoader) {
+		this.resourceLoader = resourceLoader;
+		this.loadScriptsDirectory();
 	}
 
-	private void loadScriptsDirectory(ResourceLoader resourceLoader) {
+	private void loadScriptsDirectory() {
 		try {
-			Resource resource = resourceLoader.getResource("classpath:/scripts");
+			Resource resource = this.resourceLoader.getResource("classpath:/scripts");
 
 			this.directory = resource.getFile().getAbsolutePath();
 			logger.info("Scripts files setted to [ " + this.directory + " ]");
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("Directory [ ./scripts/" + " ] does not exist.");
 			shutdownApplication.shutdown();
 		}
@@ -41,8 +48,22 @@ public class ScriptsDirectoryDevTstImpl implements ScriptsDirectory {
 	 * @see com.commandrunner.component.ScriptsDirectory#getDirectory()
 	 */
 	@Override
-	public String getDirectory() {
+	public String getScriptsDirectory() {
 		return directory;
+	}
+
+	@Override
+	public InputStream getFile(String path) {
+		Resource resource = this.resourceLoader.getResource("classpath:" + path);
+		InputStream inputStream = null;
+		try {
+			return resource.getInputStream();
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error("Error acessing path [ " + path + " ]");
+			shutdownApplication.shutdown();
+		}
+		return inputStream;
 	}
 
 }

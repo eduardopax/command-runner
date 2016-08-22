@@ -14,7 +14,7 @@ import com.commandrunner.bean.Command;
 import com.commandrunner.bean.Group;
 import com.commandrunner.bean.Result;
 import com.commandrunner.component.CommandRunner;
-import com.commandrunner.component.ScriptsDirectory;
+import com.commandrunner.component.ProjectDirectory;
 import com.commandrunner.service.ConfigurationService;
 
 @RestController
@@ -30,13 +30,13 @@ public class CommandController {
 	private ConfigurationService configurationService;
 
 	@Autowired
-	private ScriptsDirectory scriptsDirectory;
+	private ProjectDirectory projectDirectory;
 
 	@RequestMapping(value = "/{idCommand}", method = RequestMethod.GET)
 	public Result run(@PathVariable("idCommand") Long idCommand) {
 		logger.info("idCommand received [ " + idCommand + " ].");
 		Command command = this.configurationService.getConfiguration(idCommand);
-		return this.commandRunner.run(this.getCommandFormated(command), this.scriptsDirectory.getDirectory());
+		return this.commandRunner.run(this.getCommandFormated(command), this.projectDirectory.getScriptsDirectory());
 	}
 
 	private String getCommandFormated(Command command) {

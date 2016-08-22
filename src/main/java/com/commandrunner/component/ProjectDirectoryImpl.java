@@ -1,6 +1,8 @@
 package com.commandrunner.component;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,23 +14,26 @@ import com.commandrunner.condition.NoProfilesEnabled;
 
 @NoProfilesEnabled({ "development", "test" })
 @Component
-public class ScriptsDirectoryImpl implements ScriptsDirectory {
+public class ProjectDirectoryImpl implements ProjectDirectory {
 
-	private static final Logger logger = LoggerFactory.getLogger(ScriptsDirectoryImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(ProjectDirectoryImpl.class);
 
 	@Autowired
 	private ShutdownApplication shutdownApplication;
 
+	private String scriptsDirectory;
+
 	private String directory;
 
-	public ScriptsDirectoryImpl(ResourceLoader resourceLoader) {
-		this.loadScriptsDirectory(resourceLoader);
+	public ProjectDirectoryImpl(ResourceLoader resourceLoader) {
+		this.load(resourceLoader);
 	}
 
-	private void loadScriptsDirectory(ResourceLoader resourceLoader) {
+	private void load(ResourceLoader resourceLoader) {
 		try {
-			this.directory = new File("").getAbsolutePath() + "/scripts/";
-			logger.info("Scripts files setted to [ " + this.directory + " ]");
+			this.scriptsDirectory = new File("").getAbsolutePath() + "/scripts/";
+			this.directory = new File("").getAbsolutePath();
+			logger.info("Scripts files setted to [ " + this.scriptsDirectory + " ]");
 		} catch (Exception e) {
 			logger.error("Directory [ ./scripts/" + " ] does not exist.");
 			shutdownApplication.shutdown();
@@ -41,8 +46,21 @@ public class ScriptsDirectoryImpl implements ScriptsDirectory {
 	 * @see com.commandrunner.component.ScriptsDirectory#getDirectory()
 	 */
 	@Override
-	public String getDirectory() {
-		return directory;
+	public String getScriptsDirectory() {
+		return scriptsDirectory;
+	}
+
+	@Override
+	public InputStream getFile(String path) {
+		InputStream inputStream = null;
+		try {
+			File file = new File(this.directory + path);
+			inputStream = new FileInputStream(file);
+		} catch (Exception e) {
+			logger.error("Path not exist [ " + path + " ]");
+			shutdownApplication.shutdown();
+		}
+		return inputStream;
 	}
 
 }

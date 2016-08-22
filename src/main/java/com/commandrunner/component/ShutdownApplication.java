@@ -17,6 +17,12 @@ public class ShutdownApplication {
 
 	public void shutdown() {
 		logger.error("Shutdown application");
+		try {
+			// time to log shutdown
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		SpringApplication.exit(appContext, () -> 0);
 	}
 

@@ -1,7 +1,11 @@
 package com.commandrunner.component;
 
-public interface ScriptsDirectory {
+import java.io.InputStream;
 
-	String getDirectory();
+public interface ProjectDirectory {
+
+	String getScriptsDirectory();
+
+	InputStream getFile(String path);
 
 }

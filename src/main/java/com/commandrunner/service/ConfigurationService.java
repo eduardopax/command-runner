@@ -1,14 +1,11 @@
 package com.commandrunner.service;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.error.YAMLException;
@@ -20,7 +17,7 @@ import com.commandrunner.bean.Group;
 import com.commandrunner.bean.Result;
 import com.commandrunner.bean.ResultEnum;
 import com.commandrunner.component.CommandRunner;
-import com.commandrunner.component.ScriptsDirectory;
+import com.commandrunner.component.ProjectDirectory;
 import com.commandrunner.component.ShutdownApplication;
 
 @Service
@@ -37,17 +34,16 @@ public class ConfigurationService {
 
 	private Configuration configuration;
 
-	private ScriptsDirectory scriptsDirectory;
+	private ProjectDirectory projectDirectory;
 
 	/**
 	 * Verify files and set permission to execute
 	 */
-	public ConfigurationService(ResourceLoader resourceLoader, CommandRunner commandRunner,
-			ScriptsDirectory scriptsDirectory) {
+	public ConfigurationService(CommandRunner commandRunner, ProjectDirectory scriptsDirectory) {
 		this.commandRunner = commandRunner;
-		this.scriptsDirectory = scriptsDirectory;
+		this.projectDirectory = scriptsDirectory;
 
-		this.loadConfiguration(resourceLoader);
+		this.loadConfiguration();
 
 		this.populateCommandHash();
 
@@ -55,8 +51,8 @@ public class ConfigurationService {
 	}
 
 	private void setPermissionToFiles() {
-		logger.info("Giving permission to execute files in : " + this.scriptsDirectory.getDirectory());
-		Result result = this.commandRunner.run("sudo chmod +x *.sh", this.scriptsDirectory.getDirectory());
+		logger.info("Giving permission to execute files in : " + this.projectDirectory.getScriptsDirectory());
+		Result result = this.commandRunner.run("sudo chmod +x *.sh", this.projectDirectory.getScriptsDirectory());
 		if (result.getResultEnum().equals(ResultEnum.OK)) {
 			logger.info("Permission has been given.");
 		} else {
@@ -66,22 +62,17 @@ public class ConfigurationService {
 
 	}
 
-	private void loadConfiguration(ResourceLoader resourceLoader) {
+	private void loadConfiguration() {
 		// Load Configuration
-		Resource resource = resourceLoader.getResource("classpath:/config/command-runner.yml");
 		Yaml yaml = new Yaml();
 		try {
-			this.configuration = yaml.loadAs(resource.getInputStream(), Configuration.class);
-		} catch (FileNotFoundException e) {
-			logger.error("File not found in [classpath:/config/command-runner.yml]");
-			shutdownApplication.shutdown();
-		} catch (IOException e) {
-			logger.error("File not found in [classpath:/config/command-runner.yml]");
-			shutdownApplication.shutdown();
+			InputStream fileInputStream = this.projectDirectory.getFile("/config/command-runner.yml");
+			this.configuration = yaml.loadAs(fileInputStream, Configuration.class);
 		} catch (YAMLException e) {
 			logger.error("File with bad format [classpath:/config/command-runner.yml]");
 			shutdownApplication.shutdown();
 		}
+
 	}
 
 	private void populateCommandHash() {
