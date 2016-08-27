@@ -18,14 +18,14 @@ public class ProjectDirectoryImpl implements ProjectDirectory {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProjectDirectoryImpl.class);
 
-	@Autowired
 	private ShutdownApplication shutdownApplication;
 
 	private String scriptsDirectory;
 
 	private String directory;
 
-	public ProjectDirectoryImpl(ResourceLoader resourceLoader) {
+	public ProjectDirectoryImpl(ResourceLoader resourceLoader, ShutdownApplication shutdownApplication) {
+		this.shutdownApplication = shutdownApplication;
 		this.load(resourceLoader);
 	}
 

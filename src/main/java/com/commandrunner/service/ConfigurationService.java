@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.error.YAMLException;
@@ -25,7 +24,6 @@ public class ConfigurationService {
 
 	private static final Logger logger = LoggerFactory.getLogger(ConfigurationService.class);
 
-	@Autowired
 	private ShutdownApplication shutdownApplication;
 
 	private CommandRunner commandRunner;
@@ -39,9 +37,11 @@ public class ConfigurationService {
 	/**
 	 * Verify files and set permission to execute
 	 */
-	public ConfigurationService(CommandRunner commandRunner, ProjectDirectory scriptsDirectory) {
+	public ConfigurationService(CommandRunner commandRunner, ProjectDirectory scriptsDirectory,
+			ShutdownApplication shutdownApplication) {
 		this.commandRunner = commandRunner;
 		this.projectDirectory = scriptsDirectory;
+		this.shutdownApplication = shutdownApplication;
 
 		this.loadConfiguration();
 

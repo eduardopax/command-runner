@@ -17,15 +17,15 @@ public class ProjectDirectoryDevTstImpl implements ProjectDirectory {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProjectDirectoryDevTstImpl.class);
 
-	@Autowired
 	private ShutdownApplication shutdownApplication;
 
 	private String directory;
 
 	private ResourceLoader resourceLoader;
 
-	public ProjectDirectoryDevTstImpl(ResourceLoader resourceLoader) {
+	public ProjectDirectoryDevTstImpl(ResourceLoader resourceLoader, ShutdownApplication shutdownApplication) {
 		this.resourceLoader = resourceLoader;
+		this.shutdownApplication = shutdownApplication;
 		this.loadScriptsDirectory();
 	}
 
