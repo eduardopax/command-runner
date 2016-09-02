@@ -19,6 +19,7 @@ import com.commandrunner.bean.ResultEnum;
 @Component
 public class CommandRunner {
 
+	private static final String CR_MESSAGE = "CR-MESSAGE:";
 	private static final Logger logger = LoggerFactory.getLogger(CommandRunner.class);
 
 	/**
@@ -58,11 +59,13 @@ public class CommandRunner {
 					previous = line;
 					out.append(line).append('\n');
 					logger.info("returning... [" + line + "]");
+					if (line.startsWith(CR_MESSAGE)) {
+						result.setMessage(line.substring(CR_MESSAGE.length()));
+					}
 				}
 
 			logger.info("returned... [" + out.toString() + "]");
 			result.setResultEnum(ResultEnum.OK);
-			result.setMessage(out.toString());
 		} catch (Exception e) {
 			logger.error("error executing [" + command + "]");
 			e.printStackTrace();

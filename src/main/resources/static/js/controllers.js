@@ -3,11 +3,14 @@
 commandRunnerApp.controller('CommandController', [ '$scope', 'CommandService',
 		function($scope, CommandService) {
 			var self = this;
-			self.groups=[];
-
+			self.groups = [];
 			self.execute = function(commandGroupId, index) {
 				CommandService.execute(index).then(function(data) {
-					$('#status' + commandGroupId).text(data.resultEnum);
+					if (data.message != null) {
+						$('#status' + commandGroupId).text(data.message);
+					} else {
+						$('#status' + commandGroupId).text(data.resultEnum);
+					}
 				}, function(errResponse) {
 					console.error('Error while run command : ' + index);
 				});

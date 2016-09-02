@@ -40,6 +40,7 @@ public class CommandControllerTest {
 		Long idCommand = config.getGroups().get(0).getCommandGroup().get(0).getCommands().get(0).getId();
 		Result result = this.commandController.run(idCommand);
 		Assert.assertEquals(ResultEnum.OK, result.getResultEnum());
+		Assert.assertEquals("Executed", result.getMessage());
 	}
 
 }
