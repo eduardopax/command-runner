@@ -18,8 +18,10 @@
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/index.css" rel="stylesheet">
+<link href="/css/angular-block-ui.min.css" rel="stylesheet">
 
 <script src="<core:url value='/js/lib/angular.min.js' />"></script>
+<script src="<core:url value='/js/lib/angular-block-ui.min.js' />"></script>
 
 </head>
 
