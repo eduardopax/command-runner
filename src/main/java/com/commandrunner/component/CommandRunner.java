@@ -63,8 +63,6 @@ public class CommandRunner {
 						result.setMessage(line.substring(CR_MESSAGE.length()));
 					}
 				}
-			Thread.sleep(3000);
-
 			logger.info("returned... [" + out.toString() + "]");
 			result.setResultEnum(ResultEnum.OK);
 		} catch (Exception e) {
