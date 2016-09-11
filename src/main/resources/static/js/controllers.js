@@ -31,6 +31,15 @@ commandRunnerApp.controller('CommandController', [ '$scope', 'CommandService',
 				});
 			};
 
+			self.divClassRow = function(total) {
+				if (total >= 11) {
+					return 'col-xs-1';
+				} else {
+					return 'col-xs-' + (12 / (total + 1));
+				}
+
+			};
+
 			self.fetchAllGroups();
 
 			blockUI.stop();

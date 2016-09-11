@@ -71,7 +71,7 @@
 				</div>
 				<div class="row">
 					<div
-						class="col-xs-{{12 / (commandGroup.commands.length + 1)}} text-center"
+						class="{{ctrl.divClassRow(commandGroup.commands.length)}} text-center"
 						ng-repeat="command in commandGroup.commands">
 						<button type="button" class="btn {{command.color}} btn-sm "
 							ng-click="ctrl.execute(commandGroup.id, command.id)">
@@ -79,7 +79,7 @@
 						</button>
 					</div>
 					<div
-						class="col-xs-{{12 / (commandGroup.commands.length + 1)}} text-center">
+						class="{{ctrl.divClassRow(commandGroup.commands.length)}} text-center">
 						<div id="status{{commandGroup.id}}">status</div>
 					</div>
 				</div>
