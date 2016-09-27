@@ -23,7 +23,7 @@ All commands will run a shell script associated in the command-runner.yml.
 
 Compile the project using __mvn clean install__ .
 
-Copy .jar file to folder to be used to run the program.
+Copy .jar file to folder that will be used to run the program.
 
 Create the folders /script and /config at the same folder.
 
