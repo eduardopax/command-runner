@@ -33,4 +33,4 @@ Create the shell files inside /scripts.
 
 Start the application __java jar command-runner-VERSION.jar__ (It is possible to use Spring Boot parameters).
 
-****IMPORTANT - The application will give execution permission in all files .sh, it is important to start the program with a user configurated as root.****
+****IMPORTANT - The application will give execution permission in all files .sh, it is important to start the program with an user configurated as root.****
