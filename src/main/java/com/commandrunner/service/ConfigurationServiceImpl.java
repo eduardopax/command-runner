@@ -52,7 +52,7 @@ public class ConfigurationServiceImpl implements ConfigurationService {
 
 	private void setPermissionToFiles() {
 		logger.info("Giving permission to execute files in : " + this.projectDirectory.getScriptsDirectory());
-		Result result = this.commandRunner.run("sudo chmod +x *.sh", this.projectDirectory.getScriptsDirectory());
+		Result result = this.commandRunner.run("chmod +x *.sh", this.projectDirectory.getScriptsDirectory());
 		if (result.getResultEnum().equals(ResultEnum.OK)) {
 			logger.info("Permission has been given.");
 		} else {
